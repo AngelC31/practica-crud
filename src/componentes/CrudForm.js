@@ -6,15 +6,16 @@ const initialForm={
     apellido:''
 }
 
-const CrudForm=()=>{
+const CrudForm=({create, update, setDataToEdit})=>{
     const[form,setForm]=useState(initialForm)
 
     const handleChance=(e)=>{
-        //console.log(e.target.nombre +""+e.target.value)
+    console.log(e.target.name +" "+e.target.value)
         setForm({
             ...form,
-            [e.target.nombre]:e.target.value,
+            [e.target.name]:e.target.value,
         })
+        //console.log(form.nombre +" " +form.apellido)
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -23,6 +24,7 @@ const CrudForm=()=>{
             return;
         }
         if(form.id===null){
+            console.log('enviando')
             create(form)
         }
         else{
