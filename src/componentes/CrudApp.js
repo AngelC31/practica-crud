@@ -22,13 +22,19 @@ const CrudApp=()=>{
         //console.log(data)
         setDb([...db,data])
     };
-    const updateData=(data)=>{};
-    const deleteData=(id)=>{};
+    const updateData=(data)=>{
+        let newData=db.map(item=> item.id==data.id?data:item)
+        setDb( newData)
+    };
+    const deleteData=(id)=>{
+        let eliminar=db.filter(item=>item.id!==id)
+        setDb(eliminar)
+    };
     return(
         <div>
             <h1>CRUD App</h1>
             <CrudForm create={createData} update={updateData} dataToEdit={dataToEdit} setDataToEdit={setDataToEdit}/>
-            <CrudTable data={db} setDataToEdit={setDataToEdit} delete={deleteData}/>
+            <CrudTable data={db} setDataToEdit={setDataToEdit} deleteData={deleteData}/>
         </div>
     )
 }

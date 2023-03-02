@@ -1,5 +1,5 @@
 
-const CrudTable = ({ data }) => {
+const CrudTable = ({ data, setDataToEdit, deleteData }) => {
     return (
         <div>
             <h3>Tabla de datos</h3>
@@ -18,12 +18,14 @@ const CrudTable = ({ data }) => {
                                 <td colSpan="3">No existen elementos</td>
                             </tr>
                         ) : (
-                            data.map(item=>(
-                            <tr key={item.id}>
-                                <td>{item.nombre}</td>
-                                <td>{item.apellido}</td>
-                                <td><button>Editar</button><button>Eliminar</button></td>
-                            </tr>
+                            data.map(item => (
+                                <tr key={item.id}>
+                                    <td>{item.nombre}</td>
+                                    <td>{item.apellido}</td>
+                                    <td><button onClick={()=>setDataToEdit(item)}>Editar</button>
+                                        <button onClick={()=>deleteData(item.id)}>Eliminar</button>
+                                    </td>
+                                </tr>
                             )
                             )
                         )
