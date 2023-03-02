@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 
 const initialForm = {
     id: null,
-    nombre: '',
-    apellido: ''
+    nombre:'',
+    apellido:''
 }
 
 const CrudForm = ({ create, update, setDataToEdit, dataToEdit }) => {
@@ -19,7 +19,7 @@ const CrudForm = ({ create, update, setDataToEdit, dataToEdit }) => {
     }, [dataToEdit])
 
     const handleChance = (e) => {
-        console.log(e.target.name + " " + e.target.value)
+        //console.log(e.target.name + " " + e.target.value)
         setForm({
             ...form,
             [e.target.name]: e.target.value,

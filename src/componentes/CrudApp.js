@@ -18,7 +18,7 @@ const CrudApp=()=>{
     const [db, setDb]=useState(initialDb)
     const [dataToEdit,setDataToEdit]=useState(null)
     const createData=(data)=>{
-        data.id=initialDb.length;
+        data.id=db.length;
         //console.log(data)
         setDb([...db,data])
     };
